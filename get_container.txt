@@ -1,6 +1,6 @@
 #----------- selenium image for  M1 MACS -------------
 # docker pull seleniarm/standalone-chromium
-# docker run --rm -it -p 4444:4444 -p 5900:5900 -p 7900:7900 --shm-size 3g seleniarm/standalone-chromium 
+# docker run --rm -it -p 4444:4444 --shm-size 3g seleniarm/standalone-chromium 
 
 
 #----------- selenium image for intel/arch -----------
