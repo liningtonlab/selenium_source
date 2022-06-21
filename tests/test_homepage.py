@@ -13,9 +13,16 @@ input_doi_list = ["10.1021/acs.jnatprod.0c00283", ]
 
 @pytest.mark.parametrize("input_doi", input_doi_list)
 def test_homepage(input_doi):
-    chrome_options = Options()
-    # chrome_options.add_argument("--headless")
-    chrome_driver  = webdriver.Chrome(options=chrome_options)
+    # chrome_options = Options()
+    # # chrome_options.add_argument("--headless")
+    # chrome_driver  = webdriver.Chrome(options=chrome_options)
+    options = webdriver.ChromeOptions()
+    options.add_argument('--ignore-ssl-errors=yes')
+    options.add_argument('--ignore-certificate-errors')
+    chrome_driver = webdriver.Remote(
+        command_executor="http://localhost:4444/wd/hub",
+        options=options
+    )
     
     # look for the navbar and test it
     nav_bar(driver=chrome_driver, page_url="https://dev-npa-articles.liningtonlab.org/")
